@@ -5,16 +5,14 @@ class TreeNode:
         self.right = right
 
 def search_bst(root, target):
-    """
-    Given the root of a Binary Search Tree and a target value,
-    return True if the target exists in the BST, False otherwise.
-    
-    Args:
-        root: The root node of the BST (TreeNode)
-        target: The target value to search for
-    
-    Returns:
-        bool: True if target is in the BST, False otherwise
-    """
-    # TODO: Implement the search functionality
-    pass
+    if root is None:
+        return False
+    if root.val == target:
+        return True
+    elif target < root.val:
+        return search_bst(root.left, target)
+    else:
+        return search_bst(root.right, target)
+
+
+
